@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<!-- saved from url=(0032)http://localhost/helloworld.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
+<meat charset="utf-8">
+<style>
+body {
+  list-style: none;
+  text-align: center;
+  background: : black;
+  margin: auto;
+  color : rgb(255, 100, 0);
+  background: rgb(255, 65, 47);
+}
+a:hover {
+    background-color: rgb(255, 0, 0);
+}
+#circle {
+    position: absolute;
+    left: 5px;
+  padding : 620px;
+	width: 100px;
+	height: 100px;
+	background: rgb(243, 222 ,222);
+	-moz-border-radius: 50px;
+	-webkit-border-radius: 50px;
+	border-radius: 30px;
+  border-bottom: 10px;
+}
+#circle1 {
+  position: absolute;
+      top : 200px;
+  right :480px;
+  width: 100px;
+  height: 100px;
+  border: 10px solid red;
+  border-radius: 50%;
+  z-index: 5;
+}
+#circle2 {
+    position: absolute;
+      right :690px;
+      top : 245px;
+  width: 100px;
+  height: 100px;
+  border: 10px solid yellow;
+  border-radius: 50%;
+  z-index: 2
+}
+#circle3 {
+  position: absolute;
+      top : 200px;
+    right :760px;
+  width: 100px;
+  height: 100px;
+  border: 10px solid blue;
+  border-radius: 50%;
+  z-index: 1;
+}
+#circle6 {
+  position: absolute;
+      top : 245px;
+    right :695px;
+  z-index: 3;
+  width: 110px;
+	height: 100px;
+  color: blue;
+  border-top: 10px solid yellow ;
+    border-radius: 50%;
+}
+#circle4 {
+  position: absolute;
+    top : 245px;
+    right :550px;
+  width: 100px;
+  height: 100px;
+  border: 10px solid green;
+  border-radius: 50%;
+  z-index: 4;
+}
+#circle5 {
+  position: absolute;
+    top : 200px;
+  right :620px;
+	border-radius: 50px;  width: 100px;
+    height: 100px;
+    border: 10px solid black;
+    border-radius: 50%;
+    z-index: 3;
+}
+</head>
+<body>
+<input type="button" id="hw" value="Hello world" />
+</style>-->
+ <script>
+ function handle(delta) {
+var s = delta + ": ";
+if (delta < 0) s += "down";
+else s += "up";
+document.getElementById('delta').innerHTML = s;
+}
+/* Event handler for mouse wheel event. */
+function wheel(event){
+var delta = 0;
+if (!event) event = window.event;
+if (event.wheelDelta) {
+delta = event.wheelDelta/120;
+if (window.opera) delta = -delta;
+} else if (event.detail) delta = -event.detail/3;
+if (delta) handle(delta);
+ };
+ </script>
+<header>
+  <h1 style=""><a href="#" style="color : black;""http://localhost/helloworld.html">Olimpic</a></h1>
+</header>
+<h2>
+</h2>
+<h3></h3>
+<h3></h3>
+<h3></h3>
+<p id="circle"></p>
+<p id="circle1"></p>
+<p id="circle2"></p>
+<p id="circle3"></p>
+<p id="circle4"></p>
+<p id="circle5"></p>
+<p id="circle6"></p>
+<section class ="content" style="opacity: 0.000;">
+  <script>
+
+   function getLocationOrigin() {
+        var origin = window.location.origin;
+        if (!window.location.origin) {
+            origin = "//" + window.location.hostname + (window.location.port ? ":" + window.location.port : "");
+        }
+        return origin;
+    }
+
+    var pageOrigin = getLocationOrigin();
+
+    function frogEvent(e)
+    {
+        e.preventDefault();
+        var button = e.currentTarget;
+        var frogType = button.getAttribute("frog-type");
+        if (frogType)
+        {
+            var dest = button.getAttribute("href");
+            var name = button.getAttribute("frog-name");
+            var target = button.getAttribute("target");
+            new Image().src = "//frog.wix.com/hp?src=19&evid=312&type=" + frogType + "&url=" + dest + "&button_name=" + name;
+            window.open(dest, target);
+        }
+
+    }
+    var frogs = document.getElementsByClassName('frog');
+    for (var i = 0; i < frogs.length; i++)
+    {
+        frogs[i].addEventListener('click',frogEvent,true);
+    }
+  </script>
+</section>
+</p></meat></body></html>
