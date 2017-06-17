@@ -1,0 +1,24 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <style>
+        body.white{
+            background : white;
+            color : black;
+        }
+        body.black {
+            background: black;
+            color: white;
+        }
+    </style>
+</head>
+<body id="target">
+    <header>
+    </header>
+    <div id="control">
+        <input type="button" value="white" onclick="document.getElementById('target').className='white'" />
+        <input type="button" value="black" onclick="document.getElementById('target').className='black'" /> <!--클릭시 타겟의 클래스를 블랙으로 바꿈-->
+    </div>
+</body>
+</html>
