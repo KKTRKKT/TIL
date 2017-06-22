@@ -1,51 +1,41 @@
 #include <stdio.h>
-#define swap (a, b) {int temp; temp=a; a=b; b=temp;}
+#include <windows.h>
+#define swap(a, b) {int temp; temp=a; a=b; b=temp;}
 
-void _Sort(void);
-void Chose_print(int num);
+int arr[10], count = 0; // count : 배열을 입력할 때마다 증가시킴 
+void Chose_print(int num); //번호를 입력받아 번호에 맞는 함수를 호출함 
+void _Sort(void); // 배열 입력받는 함수 
+void Bubble(void); // 버블 정렬 
+void print(void); //시작 부분
+void scr(void);  // 이스터 에그 
 
 int main()
 {
 	int num;
-	print();
-	scanf("%d", &num);
-  	Chose_print(num);
+
+	while(num != 3)
+	{	
+		print();
+		scanf("%d", &num);
+  		Chose_print(num);
+  		system("cls");
+  	}
 }
 
 void print()
 {
-		printf("\t\t\t==============================================\n");
+		printf("\n\t\t\t==============================================\n");
 	printf("\t\t\t||               버블 정렬                  ||\n"); 
 	printf("\t\t\t||                                          ||\n"); 
-	printf("\t\t\t||     1. 정렬  2. 랜덤   3. 배열 입력      ||\n"); 
+	printf("\t\t\t||   1. 버블정렬   2. 배열 입력   3. 종료   ||\n"); 
 	printf("\t\t\t||                                          ||\n"); 
-	printf("\t\t\t||     1. 입력된 배열을 정렬시켜줍니다.     ||\n"); 
-	printf("\t\t\t||     2. 배열을 랜덤으로 배치시킵니다.     ||\n");	
-	printf("\t\t\t||     3. 배열을 입력하세요.                ||\n"); 
+	printf("\t\t\t||     1. 입력된 배열을 정렬시켜줍니다.     ||\n"); 	
+	printf("\t\t\t||     2. 배열을 입력하세요.                ||\n"); 
+	printf("\t\t\t||     3. 프로그램을 종료시킵니다.          ||\n"); 
+	printf("\t\t\t||     4. 절대 숫자 5개 이상 넣지 마시오.   ||\n"); 
 	printf("\t\t\t||                                          ||\n\n"); 
 	printf("\t\t\t\t       *****\r");
 	printf("\r \t\t\t\t입력 : "); 
-}
-
-void _Sort(void)
-{
-	int arr[10];
-	int i = 0, j, count = 0;
-		
-		while(1)
-		{	
-			scanf("%d", &arr[i]);
-			if(arr[i] == 9999){
-				i--; break;
-			} 
-			count++;
-			i++;
-		}	
-		arr[i] == arr[--i];
-		for(i = 0; i < count; i++)
-		{
-			printf("%d ", arr[i]);
-		}
 }
 
 void Chose_print(int jg)
@@ -53,13 +43,126 @@ void Chose_print(int jg)
 	if(jg == 1)
 	{
 		Bubble();
+		system("cls");
 	}
 	else if(jg == 2)
 	{
-		
-	}
-	else if(jg == 3)
-	{
+		count = 0; 
 		_Sort();
 	}
+	else if(jg/10000 >= 1)
+	{
+		scr();
+	}
+}
+
+void Bubble(void)
+{
+	system("cls");
+	int i, j, k;
+	char ch;
+	int count_c_a = 0, count_t_a = 0; 
+	printf("\n\t\t\t배열 : [");
+	for(k = 0; k < count; k++){
+		printf("%d ", arr[k]);
+	}
+	printf("]\n");
+	for(i = 0; i < count; i++)
+	{
+		int count_t = 0, count_c = 0;
+		if(arr[count] == 9999)
+			count--;
+		for(j = 0; j < count - i; j++)
+		{		
+			if(arr[j] > arr[j+1]) 
+			{
+				swap(arr[j], arr[j+1])
+				count_t++;
+			}
+			count_c++;
+		}
+		printf("\n\n\t\t\tPASS : %d", i+1);	
+		printf("[");
+			if(arr[count] == 9999)
+			count++;
+		for(k = 0; k < count; k++)
+			printf("%d ", arr[k]);
+		printf("]\n");
+		printf("\t\t\t비교횟수: %d 교환횟수: %d\n\n", count_c ,count_t);
+		count_c_a += count_c;
+		count_t_a += count_t;
+	}
+			printf("\t\t\t총 비교횟수: %d 총 교환횟수: %d\n\n", count_c_a ,count_t_a);
+	for(i = 0; i <= count*2; i++)
+	fflush(stdin);
+	ch = getch();
+	getche(ch);
+}
+
+void _Sort(void)
+{
+	system("cls");
+	int i = 0, j;
+	
+			
+				printf("\n\t\t\t\t9999를 입력하면 종료됩니다.\n");
+		while(1)
+		{	
+			if(i == 0)
+			{
+			
+			+	printf("\n\t\t\t\t    * * * * * * * * * * ::::\r");
+				printf("\t\t\t배열 입력 : ");
+			}	
+			scanf("%d", &arr[i]);
+			if(i > 10)
+			{
+				for(j = 0; j < count; j++)
+				fflush(stdin);
+				printf("\n\t\t\t\t다시 입력하세요.\n");
+				for(j = 0; j < 10; j++)
+				arr[j] = 0;
+				i = 0; count = 0; continue; 
+			} 
+			if(arr[i] == 9999){
+				i--; break;
+			}
+			count++;
+			i++;
+		}	
+		arr[i] == arr[--i];
+		printf("\n\t\t\t\t");
+		printf("[");
+		for(i = 0; i < count; i++)
+		{
+			printf("%d ", arr[i]);
+		}
+		printf("]\n \t\t\t\t 아무키나 누르시오.");
+		getch();
+		system("cls");
+}
+
+void scr(void)
+{
+	while(1)
+		{ 
+			int cu;
+			if(cu >= 30)
+			{
+				printf(" 너무 즐거운 하루 되세요 ^0^ "); 
+				if(cu == 100 || cu == 200 || cu == 300 || cu == 400)
+				{
+					printf("@@@@@@@@@@너어어어어무 좋은 하루!@@@@@@@@@");
+				}
+				if(cu >= 500)
+				{	
+					system("cls");
+					break;
+				}
+			}	
+			printf("  너무 즐거운 하루 되세요 ^^ \a"); 
+			getch();
+			cu++; 
+			printf("\a");
+		}
 }
